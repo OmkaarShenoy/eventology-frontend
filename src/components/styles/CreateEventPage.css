@@ -1,0 +1,26 @@
+/* CreateEventPage.css */
+.create-event-page {
+  padding: 20px;
+}
+
+.create-event-page form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.create-event-page label {
+  margin-bottom: 10px;
+}
+
+.create-event-page input,
+.create-event-page textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.create-event-page button {
+  margin-top: 20px;
+  padding: 10px;
+}

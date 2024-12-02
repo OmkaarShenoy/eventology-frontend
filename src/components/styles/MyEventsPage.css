@@ -1,0 +1,25 @@
+/* MyEventsPage.css */
+.my-events-page {
+  padding: 20px;
+}
+
+.my-events-page button {
+  margin-bottom: 20px;
+}
+
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.event-card {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.event-card h3 {
+  margin-top: 0;
+}

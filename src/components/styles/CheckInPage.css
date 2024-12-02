@@ -1,0 +1,26 @@
+/* CheckInPage.css */
+.check-in-page {
+  padding: 20px;
+}
+
+.check-in-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.check-in-form label {
+  margin-bottom: 10px;
+}
+
+.check-in-form select,
+.check-in-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.check-in-form button {
+  margin-top: 20px;
+  padding: 10px;
+}

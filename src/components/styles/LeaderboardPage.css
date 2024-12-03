@@ -21,3 +21,26 @@
 .leaderboard-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+
+/* Existing styles */
+
+/* Back Button Styles */
+.back-button {
+  display: flex;
+  align-items: center;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #6a1b9a; /* Deep purple on hover */
+}
+
+.back-button svg {
+  margin-right: 8px;
+  font-size: 20px;
+}

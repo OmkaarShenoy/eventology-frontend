@@ -1,29 +1,128 @@
 /* Dashboard.css */
-.dashboard {
-  padding: 20px;
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333333;
 }
 
+/* Dashboard Container */
+.dashboard {
+  padding: 60px 10%;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.dashboard-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #6a1b9a; /* Deep purple */
+}
+
+.logout-button {
+  padding: 12px 24px;
+  background-color: #ff9800; /* Orange */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #ffb74d; /* Lighter orange */
+}
+
+/* Tiles Container */
 .tiles-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
 }
 
 .tile {
-  background-color: #f0f0f0;
-  width: 200px;
-  height: 150px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-
-.tile h3 {
-  color: #333;
+  flex: 1 1 calc(25% - 20px); /* Adjust the percentage to control the number of tiles per row */
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 40px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tile:hover {
-  background-color: #e0e0e0;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.tile a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tile h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ff9800; /* Orange */
+  margin-bottom: 15px;
+}
+
+.tile img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tile {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logout-button {
+    margin-top: 20px;
+  }
+
+  .tile {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .dashboard {
+    padding: 30px 5%;
+  }
+
+  .dashboard-header h1 {
+    font-size: 28px;
+  }
+
+  .logout-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .tile {
+    padding: 30px 15px;
+  }
+
+  .tile h3 {
+    font-size: 20px;
+  }
 }

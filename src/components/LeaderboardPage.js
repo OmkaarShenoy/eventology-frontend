@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './styles/LeaderboardPage.css'; // Create this CSS file for styling
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function LeaderboardPage() {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -23,8 +26,17 @@ function LeaderboardPage() {
     fetchLeaderboard();
   }, []);
 
+  const handleBack = () => {
+    // Navigate back to the previous page or dashboard
+    navigate('/dashboard');
+  };
+
   return (
     <div className="leaderboard-page">
+      <div className="back-button" onClick={handleBack}>
+  <FaArrowLeft />
+  <span>Back</span>
+</div>
       <h2>Leaderboard</h2>
       <table className="leaderboard-table">
         <thead>

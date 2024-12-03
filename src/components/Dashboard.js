@@ -14,6 +14,7 @@ const Dashboard = () => {
       try {
         const decoded = jwtDecode(token);
         setRole(decoded.role); // Ensure 'role' is included in the token
+        localStorage.setItem('user_role', decoded.role); // Store user role in localStorage
       } catch (error) {
         console.error('Error decoding token:', error);
         // Handle token decoding errors

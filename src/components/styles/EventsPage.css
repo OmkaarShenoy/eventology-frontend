@@ -1,25 +1,154 @@
 /* EventsPage.css */
-.events-page {
-  padding: 20px;
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333333;
 }
 
+/* Events Page Container */
+.events-page {
+  padding: 60px 10%;
+}
+
+.events-page h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #6a1b9a; /* Deep purple */
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Events List */
 .events-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
 }
 
+/* Event Card */
 .event-card {
-  background-color: #f8f8f8;
-  padding: 15px;
-  border-radius: 8px;
-  width: 300px;
+  flex: 1 1 calc(45% - 20px); /* Adjust for two cards per row */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .event-card h3 {
-  margin-top: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ff9800; /* Orange */
+  margin-bottom: 15px;
 }
 
 .event-card p {
-  margin: 5px 0;
-}   
+  font-size: 16px;
+  color: #555555; /* Secondary text color */
+  margin-bottom: 10px;
+}
+
+.event-card .event-date,
+.event-card .event-location {
+  font-weight: 600;
+  color: #333333;
+}
+
+.event-card .event-date {
+  margin-bottom: 5px;
+}
+
+.event-card .event-description {
+  margin-bottom: 20px;
+}
+
+.event-card .view-event-button {
+  padding: 12px 24px;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.event-card .view-event-button:hover {
+  background-color: #ffb74d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .event-card {
+    flex: 1 1 calc(100% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .events-page {
+    padding: 30px 5%;
+  }
+
+  .events-page h2 {
+    font-size: 32px;
+  }
+
+  .event-card {
+    padding: 25px 15px;
+  }
+
+  .event-card h3 {
+    font-size: 22px;
+  }
+
+  .event-card p {
+    font-size: 14px;
+  }
+
+  .event-card .view-event-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+/* Existing styles */
+
+/* Back Button Styles */
+.back-button {
+  display: flex;
+  align-items: center;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #6a1b9a; /* Deep purple on hover */
+}
+
+.back-button svg {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Adjust the h2 to align properly after adding the back button */
+.events-page h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #6a1b9a; /* Deep purple */
+  margin-bottom: 50px;
+  text-align: center;
+}

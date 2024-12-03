@@ -1,0 +1,160 @@
+/* EventDetailsPage.css */
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+/* Event Details Page Container */
+.event-details-page {
+  padding: 60px 10%;
+}
+
+/* Back Button Styles */
+.back-button {
+  display: flex;
+  align-items: center;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #6a1b9a; /* Deep purple on hover */
+}
+
+.back-button svg {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Event Heading */
+.event-details-page h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #6a1b9a; /* Deep purple */
+  margin-bottom: 20px;
+}
+
+/* Event Information */
+.event-details-page p {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 10px;
+}
+
+.event-details-page .event-date,
+.event-details-page .event-location {
+  font-weight: 600;
+  color: #333333;
+}
+
+.event-details-page .event-description {
+  margin-bottom: 30px;
+}
+
+/* Subevents List */
+.subevents-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Subevent Card */
+.subevent-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subevent-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.subevent-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #6a1b9a; /* Deep purple */
+  margin: 0px;
+}
+
+.subevent-description {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 15px;
+}
+
+.subevent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.subevent-info span {
+  font-size: 14px;
+  color: #333333;
+}
+
+.subevent-info span strong {
+  color: #6a1b9a; /* Deep purple */
+}
+
+/* Leaderboard Button */
+.leaderboard-button {
+  padding: 12px 24px;
+  background-color: #ff9800; /* Orange */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.leaderboard-button:hover {
+  background-color: #ffb74d; /* Lighter orange */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-details-page {
+    padding: 30px 5%;
+  }
+
+  .event-details-page h2 {
+    font-size: 32px;
+  }
+
+  .subevent-card {
+    padding: 15px;
+  }
+
+  .leaderboard-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Additional Styling for Better Layout */
+
+/* Adjust Subevent Info for Larger Screens */
+@media (min-width: 600px) {
+  .subevent-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

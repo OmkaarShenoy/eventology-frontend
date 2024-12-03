@@ -1,22 +1,38 @@
-/* MyEventsPage.css */
+/* EventDetailsPage.css */
 
-.my-events-page {
+.event-details-page {
   padding: 40px 10%;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.header h2 {
+.event-details-page h2 {
   font-size: 28px;
   color: #6a1b9a; /* Deep purple */
+  margin-bottom: 10px;
 }
 
-.create-event-button {
+.event-details-page p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.event-details-page h3 {
+  margin-top: 20px;
+  color: #6a1b9a;
+}
+
+.event-details-page ul {
+  list-style: disc inside;
+  padding-left: 20px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.add-subevent-button {
   padding: 10px 20px;
   background-color: #6a1b9a; /* Deep purple */
   color: #ffffff;
@@ -27,47 +43,21 @@
   transition: background-color 0.3s ease;
 }
 
-.create-event-button:hover {
+.edit-button:hover,
+.add-subevent-button:hover {
   background-color: #4a148c; /* Darker purple on hover */
 }
 
-.my-events-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.event-card {
-  border: 1px solid #dddddd;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  transition: box-shadow 0.3s ease;
-}
-
-.event-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.event-link {
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
   text-decoration: none;
-  color: inherit;
-}
-
-.event-link h3 {
-  margin-top: 0;
   color: #6a1b9a;
+  font-weight: 600;
 }
 
-.event-link p {
-  margin: 5px 0;
-}
-
-.event-link ul {
-  list-style: disc inside;
-  padding-left: 20px;
+.back-link:hover {
+  text-decoration: underline;
 }
 
 .error-message {
@@ -81,21 +71,18 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .my-events-page {
+  .event-details-page {
     padding: 30px 5%;
   }
 
-  .header h2 {
+  .event-details-page h2 {
     font-size: 24px;
   }
 
-  .create-event-button {
+  .edit-button,
+  .add-subevent-button {
     padding: 8px 16px;
     font-size: 14px;
-  }
-
-  .event-card {
-    padding: 15px;
   }
 }
 

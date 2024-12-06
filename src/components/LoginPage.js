@@ -17,7 +17,7 @@ function LoginPage() {
         username: email,
         password: password,
       };
-
+      console.log('API Host:', process.env.REACT_APP_HOST);
       const response = await axios.post(
         `${process.env.REACT_APP_HOST}/token`,
         qs.stringify(data),

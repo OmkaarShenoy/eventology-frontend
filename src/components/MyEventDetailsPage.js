@@ -28,7 +28,7 @@ function MyEventDetailsPage() {
         throw new Error('No authentication token found. Please log in.');
       }
 
-      const response = await axios.get(`http://localhost:8000/events/${eventId}`, {
+      const response = await axios.get(`${process.env.REACT_APP_HOST}/events/${eventId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

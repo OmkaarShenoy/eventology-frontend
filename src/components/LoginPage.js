@@ -19,7 +19,7 @@ function LoginPage() {
       };
 
       const response = await axios.post(
-        'http://localhost:8000/token',
+        `${process.env.REACT_APP_HOST}/token`,
         qs.stringify(data),
         {
           headers: {

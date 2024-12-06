@@ -19,7 +19,7 @@ function EventDetailsPage() {
         const token = localStorage.getItem('token');
 
         // Fetch event details
-        const eventResponse = await axios.get(`http://localhost:8000/events/${eventId}`, {
+        const eventResponse = await axios.get(`${process.env.REACT_APP_HOST}/events/${eventId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ function EventDetailsPage() {
 
         // Fetch associated subevents
         const subeventsResponse = await axios.get(
-          `http://localhost:8000/events/${eventId}/subevents`,
+          `${process.env.REACT_APP_HOST}/events/${eventId}/subevents`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -22,7 +22,7 @@ function CreateEventPage() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:8000/events', eventData, {
+      await axios.post(`${process.env.REACT_APP_HOST}/events`, eventData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

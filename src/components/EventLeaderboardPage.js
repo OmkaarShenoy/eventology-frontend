@@ -14,7 +14,7 @@ function EventLeaderboardPage() {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          `http://localhost:8000/events/${eventId}/leaderboard`,
+          `${process.env.REACT_APP_HOST}/events/${eventId}/leaderboard`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -11,7 +11,7 @@ function CheckInPage() {
     const fetchSubevents = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8000/subevents', {
+        const response = await axios.get(`${process.env.REACT_APP_HOST}/subevents`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -29,7 +29,7 @@ function CheckInPage() {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:8000/check-in',
+        `${process.env.REACT_APP_HOST}/check-in`,
         {
           subevent_id: selectedSubevent,
           participant_email: participantEmail,

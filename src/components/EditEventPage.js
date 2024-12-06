@@ -33,7 +33,7 @@ function EditEventPage() {
         throw new Error('No authentication token found. Please log in.');
       }
 
-      const response = await axios.get(`http://localhost:8000/events/${eventId}`, {
+      const response = await axios.get(`${process.env.REACT_APP_HOST}/events/${eventId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -74,7 +74,7 @@ function EditEventPage() {
         throw new Error('No authentication token found. Please log in.');
       }
 
-      await axios.put(`http://localhost:8000/events/${eventId}`, eventData, {
+      await axios.put(`${process.env.REACT_APP_HOST}/events/${eventId}`, eventData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

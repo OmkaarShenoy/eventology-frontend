@@ -35,7 +35,7 @@ function RegisterPage() {
     e.preventDefault();
     try {
       // Send registration data to backend
-      await axios.post('http://localhost:8000/register', formData);
+      await axios.post(`${process.env.REACT_APP_HOST}/register`, formData);
       // Redirect to login page after successful registration
       navigate('/login');
     } catch (error) {

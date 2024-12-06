@@ -39,7 +39,7 @@ function AddSubeventPage() {
         throw new Error('No authentication token found. Please log in.');
       }
 
-      await axios.post(`http://localhost:8000/events/${eventId}/subevents`, subeventData, {
+      await axios.post(`${process.env.REACT_APP_HOST}/events/${eventId}/subevents`, subeventData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

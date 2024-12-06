@@ -12,7 +12,7 @@ function EventsPage() {
     const fetchEvents = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8000/events', {
+        const response = await axios.get(`${process.env.REACT_APP_HOST}/events`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

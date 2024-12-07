@@ -5,7 +5,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 function LeaderboardPage() {
-  const [users, setUsers] = useState([]);
+  const [leaderboard, setLeaderboard] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,11 +17,12 @@ function LeaderboardPage() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setUsers(response.data);
+        console.log('Leaderboard response:', response.data); // Debugging log
+        setLeaderboard(response.data);
       } catch (error) {
         console.error('Error fetching leaderboard:', error);
       }
-    };
+    };    
 
     fetchLeaderboard();
   }, []);
@@ -34,26 +35,26 @@ function LeaderboardPage() {
   return (
     <div className="leaderboard-page">
       <div className="back-button" onClick={handleBack}>
-  <FaArrowLeft />
-  <span>Back</span>
-</div>
+        <FaArrowLeft />
+        <span>Back</span>
+      </div>
       <h2>Leaderboard</h2>
       <table className="leaderboard-table">
         <thead>
           <tr>
             <th>Rank</th>
-            <th>Name</th>
-            <th>Total Points</th>
+            <th>User ID</th>
+            <th>Points</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
-            <tr key={user.user_id}>
+          {leaderboard.map((entry, index) => (
+            <tr key={`${entry.event_id}-${index}`}>
               <td>{index + 1}</td>
               <td>
-                {user.first_name} {user.last_name}
+                {entry.first_name} {entry.last_name}
               </td>
-              <td>{user.total_points}</td>
+              <td>{entry.points}</td>
             </tr>
           ))}
         </tbody>

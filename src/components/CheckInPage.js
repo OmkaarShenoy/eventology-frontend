@@ -16,19 +16,20 @@ function CheckInPage() {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log('Subevents response:', response.data); // Debugging log
         setSubevents(response.data);
       } catch (error) {
         console.error('Error fetching sub-events:', error);
       }
     };
-
+  
     fetchSubevents();
   }, []);
 
   const handleCheckIn = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post(
+      const response = await axios.post(
         `${process.env.REACT_APP_HOST}/check-in`,
         {
           subevent_id: selectedSubevent,
@@ -40,12 +41,14 @@ function CheckInPage() {
           },
         }
       );
-      alert('Participant checked in successfully!');
+      alert(`Success: ${response.data.message}. Points awarded: ${response.data.points_awarded}`);
       setParticipantEmail('');
+  
     } catch (error) {
       console.error('Error during check-in:', error);
+      alert(`Error: ${error.response?.data?.detail || 'An unexpected error occurred.'}`);
     }
-  };
+  };  
 
   return (
     <div className="check-in-page">

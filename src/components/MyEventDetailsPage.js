@@ -80,7 +80,7 @@ function MyEventDetailsPage() {
           {event.subevents.map((subevent) => (
             <li key={subevent.subevent_id}>
               <strong>{subevent.subevent_name}</strong> - {subevent.description} 
-              (Points: {subevent.points}, Date: {new Date(subevent.date).toLocaleString()}, Time: {subevent.time})
+              {/* (Points: {subevent.points}, Date: {new Date(subevent.date).toLocaleString()}, Time: {subevent.time}) */}
             </li>
           ))}
         </ul>

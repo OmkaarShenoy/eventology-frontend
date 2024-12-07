@@ -34,22 +34,42 @@ function AddSubeventPage() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-
+  
       if (!token) {
         throw new Error('No authentication token found. Please log in.');
       }
-
-      await axios.post(`${process.env.REACT_APP_HOST}/events/${eventId}/subevents`, subeventData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      // Redirect back to event details page
+  
+      // Combine date and time into a single datetime field
+      // Use UTC to avoid timezone issues
+      const datetime = new Date(`${subeventData.date}T${subeventData.time}:00`).toISOString();
+  
+      const submissionData = {
+        subevent_name: subeventData.subevent_name,
+        description: subeventData.description,
+        points: parseInt(subeventData.points, 10),
+        datetime, // Unified datetime field
+      };
+  
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST}/events/${eventId}/subevents`, 
+        submissionData, 
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+  
       navigate(`/events/${eventId}`);
     } catch (err) {
-      console.error('Error adding subevent:', err);
-      setError(err.response ? err.response.data.detail : err.message);
+      console.error('Full Error:', err);
+  
+      if (err.response && err.response.data) {
+        setError(err.response.data.detail || 'An unexpected error occurred');
+      } else {
+        setError(err.message || 'An unexpected error occurred');
+      }
     }
   };
 
@@ -102,9 +122,9 @@ function AddSubeventPage() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="date">Date & Time:</label>
+          <label htmlFor="date">Date:</label>
           <input
-            type="datetime-local"
+            type="date"
             id="date"
             name="date"
             value={subeventData.date}

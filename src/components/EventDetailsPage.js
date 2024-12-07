@@ -1,11 +1,9 @@
-// EventDetailsPage.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-import { format } from 'date-fns';
-import './styles/EventDetailsPage.css'; // Ensure the path is correct
-
+import { format, parseISO, isValid } from 'date-fns';
+import './styles/EventDetailsPage.css';
 
 function EventDetailsPage() {
   const [event, setEvent] = useState(null);
@@ -55,6 +53,20 @@ function EventDetailsPage() {
     navigate(`/events/${eventId}/leaderboard`);
   };
 
+  const formatDateTime = (datetime) => {
+    if (!datetime) return 'Not specified';
+    
+    try {
+      const parsedDate = parseISO(datetime);
+      return isValid(parsedDate) 
+        ? format(parsedDate, 'MMMM d, yyyy h:mm a') 
+        : 'Invalid Date';
+    } catch (error) {
+      console.error('Date parsing error:', error);
+      return 'Invalid Date';
+    }
+  };
+
   if (!event) {
     return <p>Loading event details...</p>;
   }
@@ -81,11 +93,8 @@ function EventDetailsPage() {
               <h4 className="subevent-name">{subevent.subevent_name}</h4>
               <p className="subevent-description">{subevent.description}</p>
               <div className="subevent-info">
-                <span className="subevent-date">
-                  <strong>Date:</strong> {format(new Date(subevent.date), 'MMMM d, yyyy')}
-                </span>
-                <span className="subevent-time">
-                  <strong>Time:</strong> {format(new Date(`1970-01-01T${subevent.time}Z`), 'h:mm a')}
+                <span className="subevent-datetime">
+                  <strong>Date & Time:</strong> {formatDateTime(subevent.datetime)}
                 </span>
                 <span className="subevent-points">
                   <strong>Points:</strong> {subevent.points}
